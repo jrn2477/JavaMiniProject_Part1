@@ -1,0 +1,1 @@
+# JavaMiniProject_Part1
