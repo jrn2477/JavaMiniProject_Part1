@@ -1,0 +1,28 @@
+This file will contain all the rules for our game.
+
+Game Name: Counter Intelligence
+
+
+
+In Counter Intelligence, there are two players.
+
+Game Rules:
+1. Each player has 5 ships (all of equal size). 
+
+2. Each player will have a grid of 5 units, by 5 units on which to place their ships.
+
+3. Each player will pick 5 different locations for each of their 5 ships (in secret from the
+other player).
+
+4. Once the players have both picked the locations of all of their ships,
+
+5. The players will take turns launching "missle strikes" at their opponent, by clicking
+on the location of the grid that they wish to destroy.
+
+6. The players will continue launching attacks at grid locations until they have successfully
+destroyed all of their opponents ships.
+
+7. Upon destruction of the last of the opponents ships, the game will notify the other player
+of their win.
+
+8. End of Game
