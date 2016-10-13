@@ -13,14 +13,13 @@ public class GameLogic {
 
         String player1Name = gameDisplay.player1_name;
         String player2Name = gameDisplay.player2_name;
+
+        Player player1 = new Player(player1Name);
+        Player player2 = new Player(player2Name);
         // Player player2 = new Player();
-        gameDisplay.setBoard(player1Name); //setup the player setup board stage
 
-
-
-
-
-
-    }
+        gameDisplay.setBoard(player1, player2); //setup the player setup board stage
+        gameDisplay.repaint();
+        }
 
 }
