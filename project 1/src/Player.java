@@ -10,11 +10,11 @@ import java.util.ArrayList;
  **/
 public class Player implements ActionListener {
     private String name = "";
-    private String[] chosenHotSpots = new String[5];
+    private ArrayList<String> caughtHotSpots = new ArrayList<>();
     private ArrayList<String> clickedSpots = new ArrayList<>();
-    private ArrayList<String> hotSpotsCaught = new ArrayList<>();
+    private ArrayList<String> chosenHotSpots = new ArrayList<>();
 
-    public Player(String t_name, String[] t_buttonsChosen) {
+    public Player(String t_name, ArrayList<String> t_buttonsChosen) {
         t_name = name;
         t_buttonsChosen = chosenHotSpots;
     }
@@ -25,7 +25,7 @@ public class Player implements ActionListener {
     /**
      * @return returns the ChosenHotSpots String array
      */
-    public String[] getChosenHotspots() {
+    public ArrayList<String> getChosenHotspots() {
         return chosenHotSpots;
     }
 
@@ -33,7 +33,7 @@ public class Player implements ActionListener {
      * @return returns the size of the hotSpotsCaught Array
      */
     public int getHotSpotSize() {
-        return hotSpotsCaught.size();
+        return caughtHotSpots.size();
     }
 
     /**
@@ -49,7 +49,7 @@ public class Player implements ActionListener {
      * @param clickedHotSpot - the Clicked HotSpot Button
      */
     public void addHotSpot(String clickedHotSpot) {
-        hotSpotsCaught.add(clickedHotSpot);
+        chosenHotSpots.add(clickedHotSpot);
     }
 
     /**

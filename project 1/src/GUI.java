@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -58,7 +59,7 @@ public class GUI extends JFrame {
                         createErrorMessageBox("Please enter a name into the player 2 text field");
                     }
                     else {
-                        new JOptionPane().showConfirmDialog(null, "Welcome to the Minefield! Player 1 Please select your playing board", null, JOptionPane.PLAIN_MESSAGE);
+                        new JOptionPane().showConfirmDialog(null, "Welcome to the BattleShip Field! Player 1 Please select your playing board", null, JOptionPane.PLAIN_MESSAGE);
                         playerBoard.setVisible(true);
                         playerBoard.repaint();
 
@@ -71,12 +72,10 @@ public class GUI extends JFrame {
         westPanel.add(lbl_p2);
         eastPanel.add(txt_p1);
         eastPanel.add(txt_p2);
-
         //adds the west/east panel to the p1 panel and then adds the submit button(btn_submit)
         p1.add(westPanel, BorderLayout.WEST);
         p1.add(eastPanel, BorderLayout.EAST);
         p1.add(btn_submit, BorderLayout.SOUTH);
-
         // add components to the frame
         f1.add(p1);
         f1.setTitle("BattleShip start of the game.");
@@ -88,10 +87,9 @@ public class GUI extends JFrame {
 
 
     /**
-     * Method to set up the game board
-     * @param player
-     * @param player2
-     * @returns void
+     * Method to set up the game board hotspots for each player
+     * @param player - Takes in the player1 object
+     * @param player2 - Takes in the player2 object
      */
     public void setBoard(Player player, Player player2) {
         ActionListener listener  = new ActionListener() {
@@ -132,6 +130,7 @@ public class GUI extends JFrame {
                 if (clicks > 9) {
                     playerBoard.setVisible(false);
                     new JOptionPane().showConfirmDialog(null, "The ships are placed. Player 1 will go first", null, JOptionPane.PLAIN_MESSAGE);
+                    runGame(player, player2);
 
                 }
             }
@@ -154,18 +153,46 @@ public class GUI extends JFrame {
             grid.add(tempButton);
         }
     }
-
-
     public void runGame(Player player1, Player player2) {
 
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                boolean isPlayer1 = true; //This keeps the players seperate
+                String buttonClick = e.getActionCommand();
+                System.out.println(buttonClick);
+                //ALL PLAYER 1 EVENTS SHOULD HAPPEN HERE!
+                if (isPlayer1) {
 
+                }
+
+
+                //ALL PLAYER 2 EVENTS SHOULD HAPPEN HERE!
+                else {
+
+                }
             }
         };
 
 
+        JPanel grid = new JPanel(new GridLayout(5, 5, 10, 10));
+        finish.setEnabled(false);
+        finish.addActionListener(listener);
+        finish.setSize(500, 30);
+        playerBoard.setTitle("Game Board");
+        JLabel northTitle = new JLabel("");
+        playerBoard.add(grid, BorderLayout.CENTER);
+        playerBoard.add(finish, BorderLayout.SOUTH);
+        playerBoard.setSize(500, 500);
+        playerBoard.setVisible(true);
+        for (int i = 0; i < 25; i++) {
+            String buttonName = Integer.toString(i);
+            JButton tempButton = new JButton(buttonName);
+            tempButton.addActionListener(listener);
+            tempButton.setActionCommand(buttonName);
+            buttons.add(tempButton);
+            grid.add(tempButton);
+        }
     }
 
     public void resetButtons(ArrayList<JButton> btns) {
@@ -173,8 +200,11 @@ public class GUI extends JFrame {
             JButton tempBtn = btns.get(i);
             tempBtn.setEnabled(true);
         }
+    }
 
-
+    public void testHostpot(int btnClicked, Player opposingPlayer) {
+        Player oppPlayer = opposingPlayer;
+        ArrayList<String> hotSpotArray = oppPlayer.getChosenHotspots();
     }
 
     public void createErrorMessageBox(String _msg) {
