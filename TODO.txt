@@ -1,0 +1,5 @@
+Things we need to do:
+- Finish the setboard 50%
+- add color to buttons correctly
+- Make sure data is added to each character correctly
+- Most of other logic
