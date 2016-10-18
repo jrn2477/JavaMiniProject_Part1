@@ -108,6 +108,7 @@ public class GUI extends JFrame {
 
                 } else if (clicks == 4) {
                     finish.setEnabled(true);
+                    disableButtons(buttons); 
 
                     if (buttonClick.contentEquals("Finish") && clicks == 4) {
                         playerBoard.setVisible(false);
@@ -147,7 +148,7 @@ public class GUI extends JFrame {
         for(int i=0; i < 25; i++) {
             String buttonName = Integer.toString(i);
             JButton tempButton = new JButton(buttonName);
-            tempButton.setText("*");
+            //tempButton.setText("*");
             tempButton.addActionListener(listener);
             tempButton.setActionCommand(buttonName);
             buttons.add(tempButton);
@@ -207,6 +208,14 @@ public class GUI extends JFrame {
         Player oppPlayer = opposingPlayer;
         ArrayList<String> hotSpotArray = oppPlayer.getChosenHotspots();
     }
+    
+    public void disableButtons(ArrayList<JButton> btns) {
+        for (int i = 0; i < btns.size(); i++) {
+            JButton tempBtn = btns.get(i); 
+            tempBtn.setEnabled(false);
+        }
+    }
+    
 
     public void createErrorMessageBox(String _msg) {
         String msg = _msg;
