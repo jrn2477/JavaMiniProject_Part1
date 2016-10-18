@@ -78,7 +78,7 @@ public class GUI extends JFrame {
         p1.add(btn_submit, BorderLayout.SOUTH);
         // add components to the frame
         f1.add(p1);
-        f1.setTitle("BattleShip start of the game.");
+        f1.setTitle("Game Setup");
         f1.pack();
         f1.setDefaultCloseOperation(EXIT_ON_CLOSE);
         f1.setVisible(true);
@@ -147,6 +147,7 @@ public class GUI extends JFrame {
         for(int i=0; i < 25; i++) {
             String buttonName = Integer.toString(i);
             JButton tempButton = new JButton(buttonName);
+            tempButton.setText("*");
             tempButton.addActionListener(listener);
             tempButton.setActionCommand(buttonName);
             buttons.add(tempButton);
